@@ -6,7 +6,7 @@ var port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello Node');
+    res.end('Hello Node\n\nServer Info:\nIP : ' + ipaddress + '\nPORT : ' + port);
 }).listen(port, ipaddress);
 
 console.log('Server started on port ' + port);
