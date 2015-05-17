@@ -8,4 +8,4 @@ http.createServer(function(req, res) {
     res.end('Hello Node\n\nServer Info:\nIP : ' + ipaddress + '\nPORT : ' + port);
 }).listen(port, ipaddress);
 
-console.log('Server started on port ' + port);
+console.log('Server started on ip ' + ipaddress + ' port ' + port);

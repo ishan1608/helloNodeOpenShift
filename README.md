@@ -1,3 +1,8 @@
-The OpenShift `nodejs` cartridge documentation can be found at:
+# Hello Node OpenShift
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
+This is an example hello world node.js server deployed on OpenShift.
+
+This contains only the bare minimum things which are required to make and run a node.js server on OpenShift.
+
+#####Author
+Ishan <ishanatmuzaffarpur@gmail.com>
