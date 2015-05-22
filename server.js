@@ -12,7 +12,15 @@ http.createServer(function(req, res) {
     
     MongoClient.connect(mongoUri, function(err, db) {
         if (!err) {
-            res.end('\nConnected to mongoDB database\n\nMongoDB Info:\nHOST : ' + process.env.OPENSHIFT_MONGODB_DB_HOST + '\nPORT : ' + process.env.OPENSHIFT_MONGODB_DB_PORT);
+            res.write('\nConnected to mongoDB database\n\nMongoDB Info:\nHOST : ' + process.env.OPENSHIFT_MONGODB_DB_HOST + '\nPORT : ' + process.env.OPENSHIFT_MONGODB_DB_PORT);
+            var collection = db.collection('articles');
+            collection.findOne(function(err, result) {
+               if (!err) {
+                   res.end('\nFound item in collection articles :\n' + JSON.stringify(result));
+               } else {
+                   res.end('\nCouldn\'t find items in collection.');
+               }
+            });
         } else {
             res.end('Couldn\'t connect to mongoDB.\nError Info :\n' + JSON.stringify(err));
         }
