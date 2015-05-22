@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient;
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
-var mongoUri = 'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_HOST + ':' + process.env.OPENSHIFT_MONGODB_DB_PORT + '/' || 'mongodb://127.0.0.1:27017/hellonode';
+var mongoUri = 'mongodb://admin:z21ETW-caXWD@' + process.env.OPENSHIFT_MONGODB_DB_HOST + ':' + process.env.OPENSHIFT_MONGODB_DB_PORT + '/hellonode' || 'mongodb://127.0.0.1:27017/hellonode';
 
 http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
