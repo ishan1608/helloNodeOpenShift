@@ -8,11 +8,11 @@ var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var mongoUri = 'mongodb://admin:z21ETW-caXWD@' + process.env.OPENSHIFT_MONGODB_DB_HOST + ':' + process.env.OPENSHIFT_MONGODB_DB_PORT + '/hellonode';
 //var mongoUri = 'mongodb://127.0.0.1:27017/hellonode';
 
-http.createServer(function(req, res) {
+http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write('Hello Node\n\nServer Info:\nIP : ' + ipaddress + '\nPORT : ' + port);
     
-    MongoClient.connect(mongoUri, function(err, db) {
+    MongoClient.connect(mongoUri, (err, db) => {
         if (!err) {
             res.write('\nConnected to mongoDB database\n\nMongoDB Info:\nHOST : ' + process.env.OPENSHIFT_MONGODB_DB_HOST + '\nPORT : ' + process.env.OPENSHIFT_MONGODB_DB_PORT);
             // CP's section
@@ -23,7 +23,7 @@ http.createServer(function(req, res) {
             user.password = 'm7382in';
             
             var users = db.collection('users');
-            users.insert(user,{safe:true},function(err,result){
+            users.insert(user,{safe:true},(err, result) => {
                 console.log('Result:');
                 console.dir(result);	// Works
                 console.log('Error::');

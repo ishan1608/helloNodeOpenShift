@@ -1,4 +1,4 @@
-var obfuscate = function(str){
+var obfuscate = str => {
 	var retString;
 	var len = str.length;
     mstr = str + '';
